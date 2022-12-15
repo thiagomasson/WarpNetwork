@@ -32,7 +32,7 @@ namespace WarpNetwork
         {
             autoAlign = x == 0 && y == 0;
             this.width = width != 0 ? width : 600;
-            this.height = height != 0 ? height : 380;
+            this.height = height != 0 ? height : 486;
             this.callback = callback;
             this.locs = locs;
             if (locs.Count < 1)
@@ -231,8 +231,13 @@ namespace WarpNetwork
                 button.draw(b);
             }
             drawTitleBox(b, title);
-            upArrow.draw(b);
-            downArrow.draw(b);
+
+            if(index > 0)
+                upArrow.draw(b);
+
+            if(index < locs.Count - buttons.Count)
+             downArrow.draw(b);
+
             base.draw(b);
             drawMouse(b, false);
         }
